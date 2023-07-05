@@ -1,0 +1,48 @@
+[{
+"id_planet": "1",
+"name_var": "Tatooine",
+"rotation_period_var": "23",
+"orbital_period_var": "304",
+"diameter_var": "10465",
+"climate_var": "arid",
+"gravity_var": "1 standard",
+"terrain_var": "desert",
+"surface_water_var": "1",
+"population_var": "200000"
+},
+{
+"id_planet": "2",
+"name_var": "Alderaan",
+"rotation_period_var": "24",
+"orbital_period_var": "364",
+"diameter_var": "12500",
+"climate_var": "temperate",
+"gravity_var": "1 standard",
+"terrain_var": "grasslands, mountains",
+"surface_water_var": "40",
+"population_var": "2000000000"
+},
+{
+"id_planet": "3",
+"name_var": "Yavin IV",
+"rotation_period_var": "24",
+"orbital_period_var": "4818",
+"diameter_var": "10200",
+"climate_var": "temperate, tropical",
+"gravity_var": "1 standard",
+"terrain_var": "jungle, rainforests",
+"surface_water_var": "8",
+"population_var": "1000"
+},
+{
+"id_planet": "4",
+"name_var": "Hoth",
+"rotation_period_var": "23",
+"orbital_period_var": "549",
+"diameter_var": "7200",
+"climate_var": "frozen",
+"gravity_var": "1.1 standard",
+"terrain_var": "tundra, ice caves, mountain ranges",
+"surface_water_var": "100",
+"population_var": "unknown"
+}]
