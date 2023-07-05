@@ -1,0 +1,436 @@
+{
+	"info": {
+		"_postman_id": "3f1717a9-871c-4b13-8d7c-5a6b2ec46490",
+		"name": "Planets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26705871"
+	},
+	"item": [
+		{
+			"name": "/planets/",
+			"item": [
+				{
+					"name": "/planets/ ALLOW",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let header = pm.response.headers.get(\"Allow\");\r",
+									"pm.test(\"Allow header\", function () {\r",
+									"    let par = \"GET, HEAD, OPTIONS\";\r",
+									"    pm.expect(par).to.eql(header);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/ 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/ 404 NOT FOUND (URI)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planet/"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/ Body have any keys",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body have any keys\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"count\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"next\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"previous\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"results\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/ Type values",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type values\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.count).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.next).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.previous).to.be.a(\"null\");\r",
+									"    pm.expect(jsonData.results).to.be.a(\"array\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/planets/id",
+			"item": [
+				{
+					"name": "/planets/id ALLOW",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let header = pm.response.headers.get(\"Allow\");\r",
+									"pm.test(\"Allow header\", function () {\r",
+									"    let par = \"GET, HEAD, OPTIONS\";\r",
+									"    pm.expect(par).to.eql(header);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/id 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/id 404 NOT FOUND (id > 60)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/61"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/id Body have any keys",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body have any keys\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"name\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"rotation_period\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"orbital_period\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"diameter\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"climate\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"gravity\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"terrain\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"surface_water\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"population\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"residents\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"films\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"created\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"edited\");\r",
+									"    pm.expect(jsonData).to.have.any.keys(\"url\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/id Type values",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Type values\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.rotation_period).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.orbital_period).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.diameter).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.climate).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.gravity).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.terrain).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.surface_water).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.population).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.residents).to.be.a(\"array\");\r",
+									"    pm.expect(jsonData.films).to.be.a(\"array\");\r",
+									"    pm.expect(jsonData.created).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.edited).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.url).to.be.a(\"string\");\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/planets/scheme/",
+			"item": [
+				{
+					"name": "/planets/scheme/ ALLOW",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let header = pm.response.headers.get(\"Allow\");\r",
+									"pm.test(\"Allow header\", function () {\r",
+									"    let par = \"GET, HEAD, OPTIONS\";\r",
+									"    pm.expect(par).to.eql(header);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/schema/"
+					},
+					"response": []
+				},
+				{
+					"name": "/planets/scheme/ 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/schema/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/planets/id All values",
+			"item": [
+				{
+					"name": "/planets/id All values",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Test name of a Planet\", function () {\r",
+									"    pm.expect(jsonData.name).to.eql(pm.variables.get(\"name_var\"))\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test rotation period of a Planet\", function () {\r",
+									"    pm.expect(jsonData.rotation_period).to.eql(pm.variables.get(\"rotation_period_var\"))\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test orbital period of a Planet\", function () {\r",
+									"    pm.expect(jsonData.orbital_period).to.eql(pm.variables.get(\"orbital_period_var\"))\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test diameter of a Planet\", function () {\r",
+									"    pm.expect(jsonData.diameter).to.eql(pm.variables.get(\"diameter_var\"))\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test climate of a Planet\", function () {\r",
+									"    pm.expect(jsonData.climate).to.eql(pm.variables.get(\"climate_var\"))\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test gravity of a Planet\", function () {\r",
+									"    pm.expect(jsonData.gravity).to.eql(pm.variables.get(\"gravity_var\"))\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test terrain of a Planet\", function () {\r",
+									"    pm.expect(jsonData.terrain).to.eql(pm.variables.get(\"terrain_var\"))\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test surface water of a Planet\", function () {\r",
+									"    pm.expect(jsonData.surface_water).to.eql(pm.variables.get(\"surface_water_var\"))\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test population of a Planet\", function () {\r",
+									"    pm.expect(jsonData.population).to.eql(pm.variables.get(\"population_var\"))\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.dev/api/planets/{{id_planet}}"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id_planet",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
